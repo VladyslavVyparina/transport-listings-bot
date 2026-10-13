@@ -1,7 +1,9 @@
-BOT_TOKEN = "8917195095:AAGbagg6fxJ-qORyCs84piYXcIUiIwWZyjQ"
+import os
 
-# Канал-джерело: усі нові пости копіюємо далі, крім планового пуша.
-SOURCE_CHAT_ID = -1002031991424
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
-# Канал-призначення ретрансляції.
-DEST_CHAT_ID = -1004349240981
+# Source channel: new posts are copied onward, except the scheduled push.
+SOURCE_CHAT_ID = int(os.environ.get("SOURCE_CHAT_ID", "-1002031991424"))
+
+# Destination channel for the relay.
+DEST_CHAT_ID = int(os.environ.get("DEST_CHAT_ID", "-1004349240981"))
